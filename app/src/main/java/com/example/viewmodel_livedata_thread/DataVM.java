@@ -71,12 +71,15 @@ public class DataVM extends ViewModel {
         //ask for it to stop
         mythread.stopRequested=true;
 
-        try {
-            //wait until its done
-            mythread.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        //DO NOT BLOCK UI BY JOINING THREAD
+        //JUST SET ITS ONLY REFERENCE TO NULL
+        //AND LET GARBAGE COLLECTOR COLLECT IT
+//        try {
+//            //wait until its done
+//            mythread.join();
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         mythread=null;  //GC this thread
     }
 
