@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
                 pBar.setProgress(newInt);
             }
         };
-        //now observer
+        // Observe the LiveData, passing in this activity as the LifecycleOwner and the observer.
         myVM.getCurrentProgress().observe(this,cntrObserver);
 
         final Observer<Boolean> isThreadRunningObserver = new Observer<Boolean>() {
@@ -54,9 +54,8 @@ public class MainActivity extends AppCompatActivity {
                 pBar.setProgress(0);
             }
         };
-        //now observer
+        // Observe the LiveData, passing in this activity as the LifecycleOwner and the observer.
         myVM.getThreadState().observe(this,isThreadRunningObserver);
-
     }
 
     public void doStart(View view) {
